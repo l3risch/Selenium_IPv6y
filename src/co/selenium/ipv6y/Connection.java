@@ -1,6 +1,7 @@
 package co.selenium.ipv6y;
 
 import java.io.BufferedWriter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Connection {
 	{
 		FirefoxBinary firefoxBinary = new FirefoxBinary();
 		   firefoxBinary.addCommandLineOptions("--headless");
-		   System.setProperty("webdriver.gecko.driver", "C:\\Users\\ACER\\eclipse-workspace\\Selenium_IPv6y\\resources\\geckodriver.exe");
+		   System.setProperty("webdriver.gecko.driver", "resources/geckodriver-v0.24.0-win64/geckodriver.exe");
 		   _firefoxOptions = new FirefoxOptions();
 		   _firefoxOptions.setBinary(firefoxBinary);
 		   _driver = new FirefoxDriver(_firefoxOptions);

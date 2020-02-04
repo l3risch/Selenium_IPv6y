@@ -52,34 +52,10 @@ public class Connection {
 		   
 		   List<String> ipv6websites = new ArrayList<String>();
 		   ipv6websites.add("http://www.google.com");
-		   ipv6websites.add("https://www.youtube.com");
-		   ipv6websites.add("https://www.facebook.com");
-		   ipv6websites.add("https://www.wikipedia.org");
-		   ipv6websites.add("https://www.yahoo.com");
-		   ipv6websites.add("https://www.Netflix.com");
-		   ipv6websites.add("https://www.Blogspot.com");
-		   ipv6websites.add("https://www.bing.com");
-		   ipv6websites.add("https://www.instagram.com");
-		   ipv6websites.add("https://www.office.com");
-		   ipv6websites.add("https://www.google.com.hk");
-	    // ipv6websites.add("https://www.google.com.in"); not reachabele
-		   ipv6websites.add("http://www.yandex.ru");
-		   ipv6websites.add("http://www.mail.ru");
-		   ipv6websites.add("http://www.dropbox.com");
-		   ipv6websites.add("http://www.linkedin.com");
-       //  ipv6websites.add("http://www.google.com.jp"); not reachable
-		   ipv6websites.add("http://www.google.de");
-	   //  ipv6websites.add("http://www.xhamster.com"); outoftime Exception
-		   ipv6websites.add("http://www.google.com.br");
-		   ipv6websites.add("http://www.medium.com");
-		   ipv6websites.add("http://www.bbc.com");
-		   ipv6websites.add("http://www.cnn.com");
-		   ipv6websites.add("http://www.google.ru");
-		   ipv6websites.add("http://www.google.it");
-		   ipv6websites.add("http://www.google.cn");
-		   ipv6websites.add("http://www.onlinesbi.com");
-
-		   long[][] Messungen = new long[ipv6websites.size()][5];
+		  
+		   //Set iterations
+		   int iterations = 1;
+		   long[][] Messungen = new long[ipv6websites.size()][iterations];
 			   
 		   List<Long> einzelmessungen = new ArrayList<Long>();
 		   
@@ -90,19 +66,17 @@ public class Connection {
            writer.write("###########################################################################################");
 
 		   
-			   while(countloop < 1)
+			   while(countloop < iterations)
 			   {
 		
 				 for (String ipv6website : ipv6websites)
 				 {
-					 System.out.println("IP: " + InetAddress.getLocalHost().getHostAddress());
-					 System.out.println("IPv6: " + Inet6Address.getLocalHost().getHostAddress());
-
+					 
 				     driver.get(ipv6website);
+				     
 				     /**
 				      * Break of 1 sec
 				      */
-				     
 				     //driver.manage().timeouts().implicitlyWait(1,
 				       //  TimeUnit.SECONDS);
 				     
@@ -126,81 +100,9 @@ public class Connection {
 				     long loadingTimeDif = responseEnd-navigationStart;
 				     
 				     //Speichern der Messergebnisse für die einzelnen Webseiten
-				     switch(ipv6website)
-				     {
-				     case "http://www.google.com": 
+				      
 				    	Messungen[0][countloop] = loadingTimeDif; 
-				     break;
-				     case "https://www.youtube.com": 
-					   	Messungen[1][countloop] = loadingTimeDif; 
-				     break;
-				     case "https://www.facebook.com": 
-						   	Messungen[2][countloop] = loadingTimeDif; 
-				     break;
-				     case "https://www.wikipedia.org": 
-						   	Messungen[3][countloop] = loadingTimeDif; 
-					 break;
-				     case "https://www.yahoo.com": 
-						   	Messungen[4][countloop] = loadingTimeDif; 
-					 break;
-				     case "https://www.Netflix.com": 
-					    	Messungen[5][countloop] = loadingTimeDif; 
-					 break;
-					 case "https://www.Blogspot.com": 
-						   	Messungen[6][countloop] = loadingTimeDif; 
-					 break;
-					 case "https://www.bing.com": 
-						   	Messungen[7][countloop] = loadingTimeDif; 
-				     break;
-				     case "https://www.instagram.com": 
-						   	Messungen[8][countloop] = loadingTimeDif; 
-					 break;
-				     case "https://www.office.com": 
-						   	Messungen[9][countloop] = loadingTimeDif; 
-					 break;
-				     case "https://www.google.com.hk": 
-						   	Messungen[10][countloop] = loadingTimeDif; 
-					 break;
-				     case "https://www.yandex.ru": 
-						   	Messungen[11][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.mail.ru": 
-				    	Messungen[12][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://www.dropbox.com": 
-					   	Messungen[13][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://linkedin.com": 
-						   	Messungen[14][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://www.google.de": 
-						   	Messungen[15][countloop] = loadingTimeDif; 
-					 break;  
-					 case "http://www.google.com.br": 
-						   	Messungen[16][countloop] = loadingTimeDif; 
-					 break;
-					 case "http://www.medium.com": 
-						   	Messungen[17][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://www.bbc.com": 
-						   	Messungen[18][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.cnn.com": 
-						   	Messungen[19][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.ru": 
-						   	Messungen[20][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.it": 
-						   	Messungen[21][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.cn": 
-						   	Messungen[22][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.onlinesbi.com": 
-						   	Messungen[23][countloop] = loadingTimeDif; 
-					 break;
-				     }
+				    
 				     
 				     
 				     //Events sortiert nach Zeitpunkt
@@ -232,15 +134,16 @@ public class Connection {
 				 
 			   writer.write("\n");
 			   countloop++; 
+			   System.out.println("Loop: " + countloop);
 			   
 			   }
 		
 		   //Berechnung statistischer Kennzahlen
 		   countwebsite = countwebsite / countloop;
 		   
-		   long[] websitemeans = new long[24];
-		   long[] websitevariances = new long[24];
-		   long[] websitestds = new long[24];
+		   long[] websitemeans = new long[1];
+		   long[] websitevariances = new long[1];
+		   long[] websitestds = new long[1];
 		   for(int i = 0; i < countwebsite; i++)
 		   {
 			   List<Long> einzelmessungenweb = new ArrayList<Long>();
@@ -262,7 +165,7 @@ public class Connection {
 		   writer.write("\n----------------------------------------------------------------");
 		   writer.write("\nMeans:\n");
 		   
-		   for(int i = 0; i < 24; i++)
+		   for(int i = 0; i < 1; i++)
 		   {
 			   writer.write("\n" + ipv6websites.get(i) + " Mean: " + websitemeans[i]);
 		   }
@@ -270,7 +173,7 @@ public class Connection {
 
 		   writer.write("\n----------------------------------------------------------------");
 		   writer.write("\nStandard Deviations:\n");
-		   for(int i = 0; i < 24; i++)
+		   for(int i = 0; i < 1; i++)
 		   {
 			   writer.write("\n" + ipv6websites.get(i) + " STD: " + websitestds[i]);
 		   }
@@ -280,6 +183,13 @@ public class Connection {
 		   writer.write("\nOverall Variance: " + overallvariance);
 		   writer.write("\nOverall Standard Deviation: " + overallstd);
 
+		   Runtime runtime = Runtime.getRuntime();
+		     // Run the garbage collector
+		     runtime.gc();
+		     // Calculate the used memory
+		     long memory = runtime.totalMemory() - runtime.freeMemory();
+		     System.out.println("Total memory is: " + runtime.totalMemory());
+		     System.out.println("Used memory is: " + memory);
 		   writer.close();
 		   
 		   driver.quit();

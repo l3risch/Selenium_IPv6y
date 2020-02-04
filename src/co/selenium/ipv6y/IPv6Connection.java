@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	public class IPv6Connection extends Connection {
 		
 	 public static void main(String [] args) {
+		 		 
+	   long startTime = System.nanoTime();
 		 
 	   Connection con = new Connection();
 	   
@@ -17,7 +19,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
+	   long elapsedTime = System.nanoTime() - startTime;
+	   
+	   System.out.println("Execution Time: " + elapsedTime/1000000);
 	 
-	 }
-}
+	}
+	 
+	 
+ }
+
 

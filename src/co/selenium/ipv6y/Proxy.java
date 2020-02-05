@@ -35,9 +35,11 @@ public class Proxy extends Connection{
 		DesiredCapabilities dc;
 		dc = DesiredCapabilities.firefox();              
 		System.setProperty("https.proxyHost","10.100.21.11");
+		//enabling access over http
 		System.setProperty("https.proxyPort","80"); 
-		 System.setProperty("https.proxyHost","10.100.21.11");
-		 System.setProperty("https.proxyPort","443");                    
+		System.setProperty("https.proxyHost","10.100.21.11");
+		//enabling access over https
+		System.setProperty("https.proxyPort","443");                    
 		
 		dc.setCapability(FirefoxOptions.FIREFOX_OPTIONS, _firefoxOptions);
 		_driver = new FirefoxDriver(dc);

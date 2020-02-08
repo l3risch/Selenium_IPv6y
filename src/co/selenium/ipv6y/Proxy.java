@@ -22,9 +22,11 @@ public class Proxy extends Connection{
 	}
 
 	public static void main(String [] args) {
-		
+		   long startTime = System.nanoTime();
 		   new Proxy();
-
+		   long elapsedTime = System.nanoTime() - startTime;
+		   
+		   System.out.println("Execution Time: " + elapsedTime/1000000);
 	}
 	
 	public void buildConnection()

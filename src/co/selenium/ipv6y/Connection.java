@@ -51,37 +51,40 @@ public class Connection {
 		JavascriptExecutor jsx = (JavascriptExecutor) driver;
 		BufferedWriter writer = new BufferedWriter(new FileWriter("./resources/StatisticalData.txt", false));
 		   
+		/**
+		 * Auf https umstellen
+		 */
 		   List<String> ipv6websites = new ArrayList<String>();
-		   ipv6websites.add("http://www.google.com");
+		   ipv6websites.add("https://www.google.com");
 		   ipv6websites.add("https://www.youtube.com");
 		   ipv6websites.add("https://www.facebook.com");
 		   ipv6websites.add("https://www.wikipedia.org");
-		   ipv6websites.add("https://www.yahoo.com");
+		 //ipv6websites.add("https://www.yahoo.com");  not reachable over IPv6 
 		   ipv6websites.add("https://www.Netflix.com");
 		   ipv6websites.add("https://www.Blogspot.com");
 		   ipv6websites.add("https://www.bing.com");
 		   ipv6websites.add("https://www.instagram.com");
 		   ipv6websites.add("https://www.office.com");
 		   ipv6websites.add("https://www.google.com.hk");
-	    // ipv6websites.add("https://www.google.com.in"); not reachabele
-		   ipv6websites.add("http://www.yandex.ru");
-		   ipv6websites.add("http://www.mail.ru");
-		   ipv6websites.add("http://www.dropbox.com");
-		   ipv6websites.add("http://www.linkedin.com");
-       //  ipv6websites.add("http://www.google.com.jp"); not reachable
-		   ipv6websites.add("http://www.google.de");
-	   //  ipv6websites.add("http://www.xhamster.com"); outoftime Exception
-		   ipv6websites.add("http://www.google.com.br");
-		   ipv6websites.add("http://www.medium.com");
-		   ipv6websites.add("http://www.bbc.com");
-		   ipv6websites.add("http://www.cnn.com");
-		   ipv6websites.add("http://www.google.ru");
-		   ipv6websites.add("http://www.google.it");
-		   ipv6websites.add("http://www.google.cn");
-		   ipv6websites.add("http://www.onlinesbi.com");
+	    // ipv6websites.add("https://www.google.com.in"); not reachable over IPv6 
+		   ipv6websites.add("https://www.yandex.ru");
+		// ipv6websites.add("https://www.mail.ru");  not reachable over IPv6 
+		   ipv6websites.add("https://www.dropbox.com");
+		   ipv6websites.add("https://www.linkedin.com");
+       //  ipv6websites.add("https://www.google.com.jp"); not reachable over IPv6 
+		   ipv6websites.add("https://www.google.de");
+	     //ipv6websites.add("https://www.xhamster.com"); 
+		   ipv6websites.add("https://www.google.com.br");
+		   ipv6websites.add("https://www.medium.com");
+		 //ipv6websites.add("https://www.bbc.com");  not reachable over IPv6 
+		   ipv6websites.add("https://www.cnn.com");
+		   ipv6websites.add("https://www.google.ru");
+		   ipv6websites.add("https://www.google.it");
+		   ipv6websites.add("https://www.google.cn");
+	//     ipv6websites.add("https://www.onlinesbi.com");
 
 		   //Set iterations
-		   int iterations = 1;
+		   int iterations = 20;
 		   long[][] Messungen = new long[ipv6websites.size()][iterations];
 			   
 		   List<Long> einzelmessungen = new ArrayList<Long>();
@@ -129,7 +132,7 @@ public class Connection {
 				     //Speichern der Messergebnisse für die einzelnen Webseiten
 				     switch(ipv6website)
 				     {
-				     case "http://www.google.com": 
+				     case "https://www.google.com": 
 				    	Messungen[0][countloop] = loadingTimeDif; 
 				     break;
 				     case "https://www.youtube.com": 
@@ -141,65 +144,53 @@ public class Connection {
 				     case "https://www.wikipedia.org": 
 						   	Messungen[3][countloop] = loadingTimeDif; 
 					 break;
-				     case "https://www.yahoo.com": 
-						   	Messungen[4][countloop] = loadingTimeDif; 
-					 break;
 				     case "https://www.Netflix.com": 
-					    	Messungen[5][countloop] = loadingTimeDif; 
+					    	Messungen[4][countloop] = loadingTimeDif; 
 					 break;
 					 case "https://www.Blogspot.com": 
-						   	Messungen[6][countloop] = loadingTimeDif; 
+						   	Messungen[5][countloop] = loadingTimeDif; 
 					 break;
 					 case "https://www.bing.com": 
-						   	Messungen[7][countloop] = loadingTimeDif; 
+						   	Messungen[6][countloop] = loadingTimeDif; 
 				     break;
 				     case "https://www.instagram.com": 
-						   	Messungen[8][countloop] = loadingTimeDif; 
+						   	Messungen[7][countloop] = loadingTimeDif; 
 					 break;
 				     case "https://www.office.com": 
-						   	Messungen[9][countloop] = loadingTimeDif; 
+						   	Messungen[8][countloop] = loadingTimeDif; 
 					 break;
 				     case "https://www.google.com.hk": 
-						   	Messungen[10][countloop] = loadingTimeDif; 
+						   	Messungen[9][countloop] = loadingTimeDif; 
 					 break;
 				     case "https://www.yandex.ru": 
-						   	Messungen[11][countloop] = loadingTimeDif; 
+						   	Messungen[10][countloop] = loadingTimeDif; 
 					 break;
-				     case "http://www.mail.ru": 
-				    	Messungen[12][countloop] = loadingTimeDif; 
+				     case "https://www.dropbox.com": 
+					   	Messungen[11][countloop] = loadingTimeDif; 
 				     break;
-				     case "http://www.dropbox.com": 
-					   	Messungen[13][countloop] = loadingTimeDif; 
+				     case "https://linkedin.com": 
+						   	Messungen[12][countloop] = loadingTimeDif; 
 				     break;
-				     case "http://linkedin.com": 
-						   	Messungen[14][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://www.google.de": 
-						   	Messungen[15][countloop] = loadingTimeDif; 
+				     case "https://www.google.de": 
+						   	Messungen[13][countloop] = loadingTimeDif; 
 					 break;  
-					 case "http://www.google.com.br": 
+					 case "https://www.google.com.br": 
+						   	Messungen[14][countloop] = loadingTimeDif; 
+					 break;
+					 case "https://www.medium.com": 
+						   	Messungen[15][countloop] = loadingTimeDif; 
+				     break;  
+				     case "https://www.cnn.com": 
 						   	Messungen[16][countloop] = loadingTimeDif; 
 					 break;
-					 case "http://www.medium.com": 
+				     case "https://www.google.ru": 
 						   	Messungen[17][countloop] = loadingTimeDif; 
-				     break;
-				     case "http://www.bbc.com": 
+					 break;
+				     case "https://www.google.it": 
 						   	Messungen[18][countloop] = loadingTimeDif; 
 					 break;
-				     case "http://www.cnn.com": 
+				     case "https://www.google.cn": 
 						   	Messungen[19][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.ru": 
-						   	Messungen[20][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.it": 
-						   	Messungen[21][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.google.cn": 
-						   	Messungen[22][countloop] = loadingTimeDif; 
-					 break;
-				     case "http://www.onlinesbi.com": 
-						   	Messungen[23][countloop] = loadingTimeDif; 
 					 break;
 				     }
 				     
@@ -240,9 +231,9 @@ public class Connection {
 		   //Berechnung statistischer Kennzahlen
 		   countwebsite = countwebsite / countloop;
 		   
-		   long[] websitemeans = new long[24];
-		   long[] websitevariances = new long[24];
-		   long[] websitestds = new long[24];
+		   long[] websitemeans = new long[20];
+		   long[] websitevariances = new long[20];
+		   long[] websitestds = new long[20];
 		   for(int i = 0; i < countwebsite; i++)
 		   {
 			   List<Long> einzelmessungenweb = new ArrayList<Long>();
@@ -264,7 +255,7 @@ public class Connection {
 		   writer.write("\n----------------------------------------------------------------");
 		   writer.write("\nMeans:\n");
 		   
-		   for(int i = 0; i < 24; i++)
+		   for(int i = 0; i < 20; i++)
 		   {
 			   writer.write("\n" + ipv6websites.get(i) + " Mean: " + websitemeans[i]);
 		   }
@@ -272,7 +263,7 @@ public class Connection {
 
 		   writer.write("\n----------------------------------------------------------------");
 		   writer.write("\nStandard Deviations:\n");
-		   for(int i = 0; i < 24; i++)
+		   for(int i = 0; i < 20; i++)
 		   {
 			   writer.write("\n" + ipv6websites.get(i) + " STD: " + websitestds[i]);
 		   }

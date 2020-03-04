@@ -1,90 +1,76 @@
 package co.selenium.ipv6y;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.URL;
 import java.util.ArrayList;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.net.Inet6Address;
-import java.net.InetAddress; 
+
 
 
 public class Connection {
 
-	public static FirefoxOptions _firefoxOptions;
-	public static FirefoxDriver _driver;
+	public static ChromeOptions _chromeOptions;
+	public static ChromeDriver _driver;
 		
 	public void buildConnection()
 	{
-		FirefoxBinary firefoxBinary = new FirefoxBinary();
-		   firefoxBinary.addCommandLineOptions("--headless");
-		   System.setProperty("webdriver.gecko.driver", "resources/geckodriver-v0.24.0-win64/geckodriver.exe");
-		   _firefoxOptions = new FirefoxOptions();
-		   _firefoxOptions.setBinary(firefoxBinary);
-		   _driver = new FirefoxDriver(_firefoxOptions);
+		//FirefoxBinary firefoxBinary = new FirefoxBinary();
+		  // firefoxBinary.addCommandLineOptions("--headless");
+		   System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+		   _chromeOptions = new ChromeOptions();
+		   _chromeOptions.addArguments("--headless");
+		  // _chromeOptions.setBinary(firefoxBinary);
+		   _driver = new ChromeDriver(_chromeOptions);
 		   
 	}
 	
-	public FirefoxDriver getConnectionDriver()
+	public ChromeDriver getConnectionDriver()
 	{
 		return _driver;
 	
 	}
 	
-	public FirefoxOptions getBrowserOptions()
-	{
-		return _firefoxOptions;
-	}
-	
-	public static void measureConnection(FirefoxDriver driver) throws IOException
+	public static void measureConnection(ChromeDriver driver) throws IOException
 	{
 		JavascriptExecutor jsx = (JavascriptExecutor) driver;
-		BufferedWriter writer = new BufferedWriter(new FileWriter("./resources/StatisticalData.txt", false));
-		   
-		/**
-		 * Auf https umstellen
-		 */
+		BufferedWriter writer = new BufferedWriter(new FileWriter("./resources/log.txt", false));
+
 		   List<String> ipv6websites = new ArrayList<String>();
 		   ipv6websites.add("https://www.google.com");
 		   ipv6websites.add("https://www.youtube.com");
 		   ipv6websites.add("https://www.facebook.com");
 		   ipv6websites.add("https://www.wikipedia.org");
-		 //ipv6websites.add("https://www.yahoo.com");  not reachable over IPv6 
 		   ipv6websites.add("https://www.Netflix.com");
 		   ipv6websites.add("https://www.Blogspot.com");
 		   ipv6websites.add("https://www.bing.com");
 		   ipv6websites.add("https://www.instagram.com");
 		   ipv6websites.add("https://www.office.com");
 		   ipv6websites.add("https://www.google.com.hk");
-	    // ipv6websites.add("https://www.google.com.in"); not reachable over IPv6 
 		   ipv6websites.add("https://www.yandex.ru");
-		// ipv6websites.add("https://www.mail.ru");  not reachable over IPv6 
 		   ipv6websites.add("https://www.dropbox.com");
 		   ipv6websites.add("https://www.linkedin.com");
-       //  ipv6websites.add("https://www.google.com.jp"); not reachable over IPv6 
 		   ipv6websites.add("https://www.google.de");
-	     //ipv6websites.add("https://www.xhamster.com"); 
 		   ipv6websites.add("https://www.google.com.br");
 		   ipv6websites.add("https://www.medium.com");
-		 //ipv6websites.add("https://www.bbc.com");  not reachable over IPv6 
 		   ipv6websites.add("https://www.cnn.com");
 		   ipv6websites.add("https://www.google.ru");
 		   ipv6websites.add("https://www.google.it");
 		   ipv6websites.add("https://www.google.cn");
-	//     ipv6websites.add("https://www.onlinesbi.com");
 
 		   //Set iterations
-		   int iterations = 20;
+		   int iterations = 1;
 		   long[][] Messungen = new long[ipv6websites.size()][iterations];
 			   
 		   List<Long> einzelmessungen = new ArrayList<Long>();
@@ -93,40 +79,26 @@ public class Connection {
 		   int countwebsite = 0;
 		   long loadingTime = 0;
 
-           writer.write("###########################################################################################");
-
+           //LocalDateTime limit = LocalDateTime.parse("2020-02-29T14:05:38.119");
+		   writer.write("Date: " + java.time.LocalDateTime.now() + "\n");
 		   
 			   while(countloop < iterations)
 			   {
 		
 				 for (String ipv6website : ipv6websites)
 				 {
-					 
-				     driver.get(ipv6website);
-				     
-				     /**
-				      * Break of 1 sec
-				      */
-				     //driver.manage().timeouts().implicitlyWait(1,
-				       //  TimeUnit.SECONDS);
+					 URL whatismyip = new URL("https://facebook.com");
+					 BufferedReader in = new BufferedReader(new InputStreamReader(
+					                 whatismyip.openStream()));
+
+					 String ip = in.readLine(); //you get the IP as a String
+					 System.out.println(ip);
 				     
 				     //Messung der einzelnen Zeitpunkte beim Seitenaufruf
 				     long navigationStart = (long) jsx.executeScript("return performance.timing.navigationStart;");
-				     //long fetchStart = (long) jsx.executeScript("return performance.timing.fetchStart;");
-				     //long unloadEventStart = (long) jsx.executeScript("return performance.timing.unloadEventStart;");
-				     //long unloadEventEnd = (long) jsx.executeScript("return performance.timing.unloadEventEnd;");
-				     //long domainLookupStart = (long) jsx.executeScript("return performance.timing.domainLookupStart;");
-				     //long domainLookupEnd = (long) jsx.executeScript("return performance.timing.domainLookupEnd;");
-				     //long secureConnectionStart = (long) jsx.executeScript("return performance.timing.secureConnectionStart;");
-				     //long loadEventStart = (long) jsx.executeScript("return performance.timing.loadEventStart;");
-				     //long loadEventEnd = (long) jsx.executeScript("return performance.timing.loadEventEnd;");
-				     //long connectStart = (long) jsx.executeScript("return performance.timing.connectStart;");
-				     //long connectEnd = (long) jsx.executeScript("return performance.timing.connectEnd;");	     
-				     //long requestStart = (long) jsx.executeScript("return performance.timing.requestStart;");
-				     //long responseStart = (long) jsx.executeScript("return performance.timing.responseStart;");
-				     long responseEnd = (long) jsx.executeScript("return performance.timing.responseEnd;");	     
-				     //long domComplete = (long) jsx.executeScript("return performance.timing.domComplete;");	     
 				     
+				     long responseEnd = (long) jsx.executeScript("return performance.timing.responseEnd;");	     
+
 				     long loadingTimeDif = responseEnd-navigationStart;
 				     
 				     //Speichern der Messergebnisse für die einzelnen Webseiten
@@ -194,25 +166,7 @@ public class Connection {
 					 break;
 				     }
 				     
-				     
-				     //Events sortiert nach Zeitpunkt
-				     /**writer.write("Connection[" + i + "]: " + "\nNavigation Start: "+ navigationStart +
-				    		 			"\nsecureConnectionStart" + secureConnectionStart +
-				    		 			"\nFetch Start: " + fetchStart +  
-				    		 			"\ndomainLookupStart: " + domainLookupStart +
-				    		 			"\ndomainLookupEnd: " + domainLookupEnd +
-				    		 			"\nconnectStart: " + connectStart + 
-				    		 			"\nconnectEnd: " + connectEnd + 
-				    		 			"\nrequestStart: " + requestStart +
-				    		 			"\nresponseStart: " + responseStart +
-				    		 			"\nresponseEnd: " + responseEnd + 
-				    		 			"\nunloadEVentStart: "+ unloadEventStart +
-				    		 			"\nunloadEventEnd: " + unloadEventEnd +
-				    		 			"\nloadEventStart: " + loadEventStart + 
-				    		 			"\nloadEventEnd: " + loadEventEnd + 
-				    		 			"\ndomComplete: " + domComplete + "\n" );
-				    */
-				     writer.write("\n"+countloop + ") " + "Loading Time for " + ipv6website + ": " + loadingTimeDif );
+				     writer.write("\n"+countloop + ") " + "Loading Time for " + ipv6website + ": " + loadingTimeDif);
 				     
 				     //Summierung der Ladezeiten
 				     loadingTime = loadingTime + loadingTimeDif;
@@ -273,16 +227,11 @@ public class Connection {
 		   writer.write("\nOverall Variance: " + overallvariance);
 		   writer.write("\nOverall Standard Deviation: " + overallstd);
 
-		   Runtime runtime = Runtime.getRuntime();
-		     // Run the garbage collector
-		     runtime.gc();
-		     // Calculate the used memory
-		     long memory = runtime.totalMemory() - runtime.freeMemory();
-		     System.out.println("Total memory is: " + runtime.totalMemory());
-		     System.out.println("Used memory is: " + memory);
 		   writer.close();
 		   
 		   driver.quit();
+		   
+		   
 	}
 	
 

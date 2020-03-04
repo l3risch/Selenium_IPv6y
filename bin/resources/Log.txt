@@ -1,0 +1,74 @@
+Date: 2020-03-04T18:46:28.429
+
+0) Loading Time for https://www.google.com: 348
+0) Loading Time for https://www.youtube.com: 735
+0) Loading Time for https://www.facebook.com: 577
+0) Loading Time for https://www.wikipedia.org: 154
+0) Loading Time for https://www.Netflix.com: 1461
+0) Loading Time for https://www.Blogspot.com: 2377
+0) Loading Time for https://www.bing.com: 197
+0) Loading Time for https://www.instagram.com: 394
+0) Loading Time for https://www.office.com: 169
+0) Loading Time for https://www.google.com.hk: 222
+0) Loading Time for https://www.yandex.ru: 821
+0) Loading Time for https://www.dropbox.com: 890
+0) Loading Time for https://www.linkedin.com: 431
+0) Loading Time for https://www.google.de: 212
+0) Loading Time for https://www.google.com.br: 151
+0) Loading Time for https://www.medium.com: 1371
+0) Loading Time for https://www.cnn.com: 388
+0) Loading Time for https://www.google.ru: 212
+0) Loading Time for https://www.google.it: 251
+0) Loading Time for https://www.google.cn: 168
+
+----------------------------------------------------------------
+Means:
+
+https://www.google.com Mean: 348
+https://www.youtube.com Mean: 735
+https://www.facebook.com Mean: 577
+https://www.wikipedia.org Mean: 154
+https://www.Netflix.com Mean: 1461
+https://www.Blogspot.com Mean: 2377
+https://www.bing.com Mean: 197
+https://www.instagram.com Mean: 394
+https://www.office.com Mean: 169
+https://www.google.com.hk Mean: 222
+https://www.yandex.ru Mean: 821
+https://www.dropbox.com Mean: 890
+https://www.linkedin.com Mean: 0
+https://www.google.de Mean: 212
+https://www.google.com.br Mean: 151
+https://www.medium.com Mean: 1371
+https://www.cnn.com Mean: 388
+https://www.google.ru Mean: 212
+https://www.google.it Mean: 251
+https://www.google.cn Mean: 168
+----------------------------------------------------------------
+Standard Deviations:
+
+https://www.google.com STD: 0
+https://www.youtube.com STD: 0
+https://www.facebook.com STD: 0
+https://www.wikipedia.org STD: 0
+https://www.Netflix.com STD: 0
+https://www.Blogspot.com STD: 0
+https://www.bing.com STD: 0
+https://www.instagram.com STD: 0
+https://www.office.com STD: 0
+https://www.google.com.hk STD: 0
+https://www.yandex.ru STD: 0
+https://www.dropbox.com STD: 0
+https://www.linkedin.com STD: 0
+https://www.google.de STD: 0
+https://www.google.com.br STD: 0
+https://www.medium.com STD: 0
+https://www.cnn.com STD: 0
+https://www.google.ru STD: 0
+https://www.google.it STD: 0
+https://www.google.cn STD: 0
+----------------------------------------------------------------
+
+Overall Mean: 576
+Overall Variance: 315731
+Overall Standard Deviation: 561

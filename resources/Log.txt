@@ -1,0 +1,74 @@
+Date: 2020-03-04T21:24:50.181
+
+0) Loading Time for https://www.google.com: 11
+0) Loading Time for https://www.youtube.com: 11
+0) Loading Time for https://www.facebook.com: 11
+0) Loading Time for https://www.wikipedia.org: 11
+0) Loading Time for https://www.Netflix.com: 11
+0) Loading Time for https://www.Blogspot.com: 11
+0) Loading Time for https://www.bing.com: 11
+0) Loading Time for https://www.instagram.com: 11
+0) Loading Time for https://www.office.com: 11
+0) Loading Time for https://www.google.com.hk: 11
+0) Loading Time for https://www.yandex.ru: 11
+0) Loading Time for https://www.dropbox.com: 11
+0) Loading Time for https://www.linkedin.com: 11
+0) Loading Time for https://www.google.de: 11
+0) Loading Time for https://www.google.com.br: 11
+0) Loading Time for https://www.medium.com: 11
+0) Loading Time for https://www.cnn.com: 11
+0) Loading Time for https://www.google.ru: 11
+0) Loading Time for https://www.google.it: 11
+0) Loading Time for https://www.google.cn: 11
+
+----------------------------------------------------------------
+Means:
+
+https://www.google.com Mean: 11
+https://www.youtube.com Mean: 11
+https://www.facebook.com Mean: 11
+https://www.wikipedia.org Mean: 11
+https://www.Netflix.com Mean: 11
+https://www.Blogspot.com Mean: 11
+https://www.bing.com Mean: 11
+https://www.instagram.com Mean: 11
+https://www.office.com Mean: 11
+https://www.google.com.hk Mean: 11
+https://www.yandex.ru Mean: 11
+https://www.dropbox.com Mean: 11
+https://www.linkedin.com Mean: 0
+https://www.google.de Mean: 11
+https://www.google.com.br Mean: 11
+https://www.medium.com Mean: 11
+https://www.cnn.com Mean: 11
+https://www.google.ru Mean: 11
+https://www.google.it Mean: 11
+https://www.google.cn Mean: 11
+----------------------------------------------------------------
+Standard Deviations:
+
+https://www.google.com STD: 0
+https://www.youtube.com STD: 0
+https://www.facebook.com STD: 0
+https://www.wikipedia.org STD: 0
+https://www.Netflix.com STD: 0
+https://www.Blogspot.com STD: 0
+https://www.bing.com STD: 0
+https://www.instagram.com STD: 0
+https://www.office.com STD: 0
+https://www.google.com.hk STD: 0
+https://www.yandex.ru STD: 0
+https://www.dropbox.com STD: 0
+https://www.linkedin.com STD: 0
+https://www.google.de STD: 0
+https://www.google.com.br STD: 0
+https://www.medium.com STD: 0
+https://www.cnn.com STD: 0
+https://www.google.ru STD: 0
+https://www.google.it STD: 0
+https://www.google.cn STD: 0
+----------------------------------------------------------------
+
+Overall Mean: 11
+Overall Variance: 0
+Overall Standard Deviation: 0

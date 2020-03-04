@@ -2,6 +2,7 @@ package co.selenium.ipv6y;
 
 import java.io.IOException;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -9,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Proxy extends Connection{
 	
-	public static FirefoxDriver _driver;
+	public static ChromeDriver _driver;
 	
 	public Proxy()
 	{
@@ -35,16 +36,17 @@ public class Proxy extends Connection{
 		
 		
 		DesiredCapabilities dc;
-		dc = DesiredCapabilities.firefox();              
-		System.setProperty("https.proxyHost","10.100.21.11");
+		dc = DesiredCapabilities.chrome();   
+		//Test Proxy IP: 45.165.131.12:8080
+		System.setProperty("https.proxyHost","173.212.202.65");
 		//enabling access over http
 		System.setProperty("https.proxyPort","80"); 
-		System.setProperty("https.proxyHost","10.100.21.11");
+		System.setProperty("https.proxyHost","173.212.202.65");
 		//enabling access over https
 		System.setProperty("https.proxyPort","443");                    
 		
-		dc.setCapability(FirefoxOptions.FIREFOX_OPTIONS, _firefoxOptions);
-		_driver = new FirefoxDriver(dc);
+		//dc.setCapability(ChromeOptions, _chromeOptions);
+		_driver = new ChromeDriver(dc);
 	}
 
 }
